@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
     this.getDetails()
   }
  
-  
+   this.accountService.getCategories().subscribe((res:any)=>{this.categoryData=res.user},(err:any)=>{})
   }
   
 
@@ -68,7 +68,7 @@ export class HeaderComponent implements OnInit {
       this.user.firstName=res.firstname
     },(err:any)=>{})
 
-    this.accountService.getCategories().subscribe((res:any)=>{this.categoryData=res.user},(err:any)=>{})
+   
 
     this.viewCartriger()
   }
