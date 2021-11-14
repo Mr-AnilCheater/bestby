@@ -1,0 +1,22 @@
+@import "../../../assets/files/variables";
+.search_container{
+    position: relative;width:30%;
+    .result{position: absolute;top: 37px;padding: 10px;background-color: $light;color: $dark;width: 100%;z-index: 9;
+    ul{margin: 0;list-style: none;padding: 0px;
+      li{
+        img{width: 80px;border-radius: 10px;margin-right: 10px}
+
+      }
+    }
+    }
+    button{border-radius: 0;}
+}
+
+  .sidenav {height: 100%;width: 0px;position: fixed;z-index: 1;top: 0px;left: 0;background-color: $dark;overflow-x: hidden;transition: 0.5s;
+      a {padding: 8px 8px 8px 25px;text-decoration: none;font-size: 18px;color: $light;display: block; transition: 0.3s;}
+  }
+
+//   dont change this navsize class this must be underneath sidenav class
+  .navsize{width: 200px;}
+  .close_btn{position: absolute;right: 0px;top: 10px;}
+ 

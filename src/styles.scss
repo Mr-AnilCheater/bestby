@@ -1,0 +1,37 @@
+@import "assets/files/variables";
+@import '~bootstrap/scss/bootstrap';
+.flex_ctr{display: flex;align-items:center;justify-content:center;}
+.flex_btw{display: flex;align-items:center;justify-content:space-between;}
+.flex_strt{display: flex;align-items:center;justify-content:flex-start;}
+.flex_arnd{display: flex;align-items:center;justify-content:space-around;}
+a { cursor: pointer }
+img{width: 100%;height: auto;}
+.app-container {
+    min-height: 320px;
+    overflow: hidden;
+}
+
+.btn-delete-user {
+    width: 40px;
+    text-align: center;
+    box-sizing: content-box;
+}
+h1{color: $dark}
+
+.img_div{
+    width: 130px;
+    height: 180px;
+}
+.data{
+    padding: 5px 10px;
+    width: 130px;
+    text-align: center;
+    h6{font-size: 16px;color: $dark;}
+}
+.side_head{font-size: 18px;color: $dark;margin: 15px 0px;}
+
+.card{
+    margin-right: 15px;background-color:$light;padding: 5px;border-radius: 5px;
+    &:last-child{margin-right: 0;}
+    &:hover{    transform: translateY(-10px);transition: 1s;}
+}

@@ -1,0 +1,6 @@
+@import "../../../assets/files/variables";
+.item-container{
+	.cart_img{width: 30%}
+	.cart_data{width: 70%}
+	.cart_btn{cursor: pointer;height: 25px;width:25px;background: $dark;color: $light;font-size:13px;border-radius: 5px}
+}

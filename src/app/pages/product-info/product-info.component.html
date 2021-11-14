@@ -1,0 +1,33 @@
+<div class="product_info_wrapper">
+    <div class="container">
+        <div class="row product" *ngIf="productDetail">
+            <div class="col-lg-6">
+                <img src="{{productDetail.get_image}}" alt="{{productDetail.name}}">
+            </div>
+            <div class="col-lg-6">
+                <div>
+                    <h5>{{productDetail.name}}</h5>
+                    <div>
+                        <p>{{productDetail.description}}</p>
+                        <h5>{{productDetail.price}}</h5>
+                        <div class="flex_strt mt-2 mb-3">
+                            <h6 class="m-0">Quantity : {{count}}</h6>
+                            <div class="flex_strt">
+                                <div (click)="dec(count ,productDetail.id )" class="cart_btn flex_ctr mx-2"><i class="fa fa-minus" aria-hidden="true"></i></div>
+                                <div (click)="inc(count ,productDetail.id )" class="cart_btn flex_ctr"><i class="fa fa-plus" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div>
+                    <app-add-to-cart [itemId]="productDetail.id" [itemCount]="count"></app-add-to-cart>
+                    <app-buy [productId]="productDetail.id"></app-buy>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>

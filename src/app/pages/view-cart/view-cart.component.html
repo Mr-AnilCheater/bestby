@@ -1,0 +1,38 @@
+<div class="view_cart_wrapper">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-6 item-container flex_btw p-4" *ngFor="let item of product ; let i = index">
+					<div class="cart_img">
+						<img src="{{item.get_thumbnail}}">
+					</div>
+					<div class="cart_data p-4">
+						<h5>{{item.name}}</h5>
+						<p class="my-2">{{item.description}}</p>
+						<div class="flex_strt">
+							<h6 class="m-0">Quantity : {{item.count}}</h6>
+							<div class="flex_strt">
+								<div (click)="dec(item.count ,item.id )" class="cart_btn flex_ctr mx-2"><i class="fa fa-minus" aria-hidden="true"></i></div>
+								<div (click)="inc(item.count ,item.id )" class="cart_btn flex_ctr"><i class="fa fa-plus" aria-hidden="true"></i></div>
+							</div>
+						</div>
+						<!-- <form [formGroup]="form">
+							<select class="form-select" id="cart_id_{{i}}" formControlName="count"  (change)="updateCart(item.id , i)">
+								<option *ngFor="let i of quantity" [value]="i.value">{{i.value}}</option>
+							</select>
+						</form>  -->
+							
+						
+						<h6 class="mt-2 mb-3">Cart Price : {{item.price * item.count}} ({{item.count}} Items)</h6>
+						
+						<div>
+							<button class="btn btn-warning mr-3" (click)="deleteitemFromCart(item.id)">Remove</button>
+							<button class="btn btn-success">Proceed to Checkout</button>
+						</div>
+					</div>
+				
+			</div>
+			
+		</div>
+		
+	</div>
+</div>

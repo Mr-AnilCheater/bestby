@@ -1,0 +1,18 @@
+<div class="home_wrapper">
+<div class="container">
+    <div class="pt-4 pb-3">
+        <h4 class="side_head">Latest Products</h4>
+        <div class="d-flex flex-wrap latestProducts pt-2" *ngIf="latestProducts">
+            <div *ngFor="let item of latestProducts" class="card" routerLink="/product_info{{item.get_absolute_url}}">
+                <div class="img_div"> <img src="{{item.get_image}}" alt="{{item.name}}"></div>
+               
+                <div class="data">
+                    <h6>{{item.name}}</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+</div>
