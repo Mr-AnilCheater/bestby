@@ -19,4 +19,7 @@
 //   dont change this navsize class this must be underneath sidenav class
   .navsize{width: 200px;}
   .close_btn{position: absolute;right: 0px;top: 10px;}
- 
+
+@media(max-width: 991px){
+  .web_nav{display: none;}
+ }

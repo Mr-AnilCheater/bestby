@@ -60,7 +60,7 @@
       </div>
 
        
-        <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav web_nav  me-auto mb-2 mb-lg-0">
           
           <li class="nav-item" *ngFor="let item of categoryData | slice : 0:10">
             <a class="nav-item nav-link"  routerLink="category/{{item.name}}" >{{item.name}}</a>
@@ -84,11 +84,9 @@
     </div>
     
     <a href="#">About</a>
-    <a  class="dropdown-btn" (click)="this.dropdown = !this.dropdown;">Services</a>
+    <a  class="dropdown-btn" (click)="this.dropdown = !this.dropdown;">Categories</a>
     <div class="dropdown-container" *ngIf="dropdown">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
+            <a class="nav-item nav-link" *ngFor="let item of categoryData | slice : 0:10"  routerLink="category/{{item.name}}" >{{item.name}}</a>
       </div>
     <a href="#">Clients</a>
     <a href="#">Contact</a>
