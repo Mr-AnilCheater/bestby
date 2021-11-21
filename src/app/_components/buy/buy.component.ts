@@ -1,6 +1,8 @@
 import { Component, OnInit,ChangeDetectorRef,Input } from '@angular/core';
 import { ExternalLibraryService } from './utils';
 import {AccountService} from '../../_services'
+import { User } from '../../_models';
+import {Router} from '@angular/router'
 declare let Razorpay: any;
 
 @Component({
@@ -12,9 +14,13 @@ export class BuyComponent implements OnInit {
   response:any;
   razorpayResponse :any;
   payment_details:any
+  user: User;
   @Input() productId:any
 
-  constructor(private razorpayService: ExternalLibraryService, private cd:  ChangeDetectorRef,private apiservice : AccountService) { }
+  constructor(private router:Router,private razorpayService: ExternalLibraryService, private cd:  ChangeDetectorRef,private apiservice : AccountService) { 
+  this.user = this.apiservice.userValue;
+
+}
 
   ngOnInit(): void {
 
@@ -54,24 +60,32 @@ export class BuyComponent implements OnInit {
 
 
     public proceed() {
-      var data={
-        product:this.productId
+
+
+      if(this.user){
+            var data={
+            product:this.productId
+          }
+
+          this.apiservice.sendProductId(data).subscribe((res:any)=>{
+          
+          this.RAZORPAY_OPTIONS.key = this.payment_details.api_key;
+          this.RAZORPAY_OPTIONS.amount =res.status.amount;
+          this.RAZORPAY_OPTIONS.order_id = res.status.order_id;
+          // binding this object to both success and dismiss handler
+          this.RAZORPAY_OPTIONS['handler'] = this.razorPaySuccessHandler.bind(this);
+
+          // this.showPopup();
+
+          let razorpay = new Razorpay(this.RAZORPAY_OPTIONS)
+          razorpay.open();
+
+          },(err:any)=>{})
       }
-
-      this.apiservice.sendProductId(data).subscribe((res:any)=>{
+      else{
+        this.router.navigateByUrl('/account/login')
+      }
       
-      this.RAZORPAY_OPTIONS.key = this.payment_details.api_key;
-      this.RAZORPAY_OPTIONS.amount =res.status.amount;
-      this.RAZORPAY_OPTIONS.order_id = res.status.order_id;
-      // binding this object to both success and dismiss handler
-    this.RAZORPAY_OPTIONS['handler'] = this.razorPaySuccessHandler.bind(this);
-
-    // this.showPopup();
-
-    let razorpay = new Razorpay(this.RAZORPAY_OPTIONS)
-    razorpay.open();
-
-      },(err:any)=>{})
       
       
 

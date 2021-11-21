@@ -12,7 +12,7 @@ import { AlertComponent,HeaderComponent,FooterComponent,SearchComponent,AddToCar
 // import { HomeComponent } from './home';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductInfoComponent,HomeComponent,ViewCartComponent } from './pages';
-
+import { Angulartics2Module } from 'angulartics2';
 
 
 
@@ -24,7 +24,8 @@ import { ProductInfoComponent,HomeComponent,ViewCartComponent } from './pages';
         FormsModule,
         HttpClientModule,
         AppRoutingModule,
-        NgbModule
+        NgbModule,
+        Angulartics2Module.forRoot()
     ],
     declarations: [
         AppComponent,

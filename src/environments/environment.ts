@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  googleAnalyticsTrackingID:'G-95PGB6QKFS',
   apiUrl: 'https://guarded-caverns-01236.herokuapp.com/api/v1/'
   // apiUrl:'http://127.0.0.1:8000/api/v1/'
 };
